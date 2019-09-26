@@ -24,4 +24,4 @@ RUN make clean ; exit 0
 WORKDIR /build/shim-15
 RUN setarch linux32 make ARCH=ia32 VENDOR_CERT_FILE=sf-secureboot-signing.der
 RUN mv shimia32.efi /build/target/
-RUN sha512sum /build/target/*
+RUN sha256sum /build/target/*

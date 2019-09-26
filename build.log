@@ -1,4 +1,4 @@
-Sending build context to Docker daemon  2.244MB
+Sending build context to Docker daemon  3.141MB
 Step 1/26 : FROM debian:buster
 buster: Pulling from library/debian
 4a56a430b2ba: Pulling fs layer
@@ -9,11 +9,11 @@ Digest: sha256:e25b64a9cf82c72080074d6b1bba7329cdd752d51574971fd37731ed164f3345
 Status: Downloaded newer image for debian:buster
  ---> c2c03a296d23
 Step 2/26 : RUN apt-get -y -qq update
- ---> Running in 4d1a31654fbd
-Removing intermediate container 4d1a31654fbd
- ---> 92ff61462df1
+ ---> Running in 272b7f6e4d0b
+Removing intermediate container 272b7f6e4d0b
+ ---> ce33388957c8
 Step 3/26 : RUN apt-get -y -qq install build-essential git sbsigntool gnu-efi libnss3-tools libpopt-dev libnss3-dev libefivar-dev uuid-dev pesign bison flex libdevmapper-dev wget
- ---> Running in 2cc207433f3a
+ ---> Running in f7a1cddb9c0f
 [91mdebconf: delaying package configuration, since apt-utils is not installed
 [0mSelecting previously unselected package perl-modules-5.28.
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6674 files and directories currently installed.)
@@ -122,8 +122,8 @@ Selecting previously unselected package libc-dev-bin.
 Preparing to unpack .../034-libc-dev-bin_2.28-10_amd64.deb ...
 Unpacking libc-dev-bin (2.28-10) ...
 Selecting previously unselected package linux-libc-dev:amd64.
-Preparing to unpack .../035-linux-libc-dev_4.19.67-2_amd64.deb ...
-Unpacking linux-libc-dev:amd64 (4.19.67-2) ...
+Preparing to unpack .../035-linux-libc-dev_4.19.67-2+deb10u1_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (4.19.67-2+deb10u1) ...
 Selecting previously unselected package libc6-dev:amd64.
 Preparing to unpack .../036-libc6-dev_2.28-10_amd64.deb ...
 Unpacking libc6-dev:amd64 (2.28-10) ...
@@ -498,7 +498,7 @@ Setting up less (487-0.1+b1) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (TERM is not set, so the dialog frontend is not usable.)
 debconf: falling back to frontend: Readline
-Setting up linux-libc-dev:amd64 (4.19.67-2) ...
+Setting up linux-libc-dev:amd64 (4.19.67-2+deb10u1) ...
 Setting up libnpth0:amd64 (1.6-1) ...
 Setting up krb5-locales (1.17-3) ...
 Setting up libassuan0:amd64 (2.5.2-1) ...
@@ -644,54 +644,54 @@ Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
-Removing intermediate container 2cc207433f3a
- ---> d9f0accdf8b2
+Removing intermediate container f7a1cddb9c0f
+ ---> 65ce81824b47
 Step 4/26 : WORKDIR /build
- ---> Running in b54d38f8ad37
-Removing intermediate container b54d38f8ad37
- ---> 3ada9fed3493
+ ---> Running in e4bfcb426478
+Removing intermediate container e4bfcb426478
+ ---> df15ea191098
 Step 5/26 : RUN wget https://github.com/rhboot/shim/releases/download/15/shim-15.tar.bz2
- ---> Running in f2b8502aa61a
-[91m--2019-09-23 06:26:17--  https://github.com/rhboot/shim/releases/download/15/shim-15.tar.bz2
-[0m[91mResolving github.com (github.com)... [0m[91m13.236.229.21[0m[91m
-[0m[91mConnecting to github.com (github.com)|13.236.229.21|:443... [0m[91mconnected.
+ ---> Running in 7d96a01f7cc8
+[91m--2019-09-25 01:15:59--  https://github.com/rhboot/shim/releases/download/15/shim-15.tar.bz2
+[0m[91mResolving github.com (github.com)... [0m[91m52.64.108.95[0m[91m
+[0m[91mConnecting to github.com (github.com)|52.64.108.95|:443... [0m[91mconnected.
 [0m[91mHTTP request sent, awaiting response... [0m[91m302 Found
-[0m[91mLocation: https://github-production-release-asset-2e65be.s3.amazonaws.com/3996476/89d62602-3ca6-11e8-89c5-e6a21ce17699?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190923%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190923T062617Z&X-Amz-Expires=300&X-Amz-Signature=e765a870cab02f075aac3d57bf2147624d14fa62ae8c8b532c7be29f811e37a4&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dshim-15.tar.bz2&response-content-type=application%2Foctet-stream [following]
-[0m[91m--2019-09-23 06:26:17--  https://github-production-release-asset-2e65be.s3.amazonaws.com/3996476/89d62602-3ca6-11e8-89c5-e6a21ce17699?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190923%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190923T062617Z&X-Amz-Expires=300&X-Amz-Signature=e765a870cab02f075aac3d57bf2147624d14fa62ae8c8b532c7be29f811e37a4&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dshim-15.tar.bz2&response-content-type=application%2Foctet-stream
-[0m[91mResolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... [0m[91m52.216.200.171[0m[91m
-[0m[91mConnecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.216.200.171|:443... [0m[91mconnected.
+[0m[91mLocation: https://github-production-release-asset-2e65be.s3.amazonaws.com/3996476/89d62602-3ca6-11e8-89c5-e6a21ce17699?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190925%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190925T011559Z&X-Amz-Expires=300&X-Amz-Signature=9eaeb4054e220dca2db468f86f4f6f656e5b8da1d10eba500b9f4148cf9e941d&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dshim-15.tar.bz2&response-content-type=application%2Foctet-stream [following]
+[0m[91m--2019-09-25 01:16:00--  https://github-production-release-asset-2e65be.s3.amazonaws.com/3996476/89d62602-3ca6-11e8-89c5-e6a21ce17699?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190925%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190925T011559Z&X-Amz-Expires=300&X-Amz-Signature=9eaeb4054e220dca2db468f86f4f6f656e5b8da1d10eba500b9f4148cf9e941d&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dshim-15.tar.bz2&response-content-type=application%2Foctet-stream
+[0m[91mResolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... [0m[91m52.216.131.35[0m[91m
+[0m[91mConnecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.216.131.35|:443... [0m[91mconnected.
 [0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
 [0m[91mLength: [0m[91m1027215[0m[91m (1003K)[0m[91m [application/octet-stream]
 [0m[91mSaving to: 'shim-15.tar.bz2'
 [0m[91m
-     0K[0m[91m [0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m [0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m [0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m...... ...[0m[91m....... ..........  4% 98.4K 10s
-    50K .......... .......[0m[91m.[0m[91m.. .....[0m[91m..... .......... ..........  9%  194K 7s
-   100K .[0m[91m......... .......[0m[91m.[0m[91m.. .......... .....[0m[91m..... .......... 14% 38.9K 12s
-   150K ..[0m[91m........ .........[0m[91m. .......... ......[0m[91m.... .......... 19% 32.4K 14s
-   200K ...[0m[91m....... .........[0m[91m.[0m[91m .......... .......[0m[91m... .......... 24% 48.7K 14s
-   250K ...[0m[91m.[0m[91m...... .......... .[0m[91m......... ........[0m[91m.. .......... 29% 48.6K 13s
-   300K .....[0m[91m..... .......... ..[0m[91m........ .......... .......... 34% 97.2K 12s
-   350K ......[0m[91m.... .......... .......... .........[0m[91m. .......... 39% 64.8K 10s
-   400K .......... .......... .......... .......... .[0m[91m.[0m[91m........ 44%  193K 9s
-   450K .......... .......... .....[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m [0m[91m.[0m[91m.[0m[91m........ .......... 49%  191K 8s
-   500K ........[0m[91m.[0m[91m.[0m[91m [0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m... ......[0m[91m.... .......... ...[0m[91m....... 54% 98.2K 7s
-   550K .......... .......... ......[0m[91m.[0m[91m... .......... .......... 59%  195K 6s
-   600K .......... .[0m[91m.[0m[91m........ .......... .......... .....[0m[91m.[0m[91m.[0m[91m... 64% 97.6K 5s
-   650K .......... .......... .........[0m[91m. .......... ......[0m[91m.... 69%  193K 4s
-   700K .......... ...[0m[91m.[0m[91m...... ..........[0m[91m [0m[91m.[0m[91m......... .......[0m[91m.[0m[91m.[0m[91m. 74% 97.9K 3s
-   750K .......... .......... .......... .[0m[91m.[0m[91m........ .......... 79%  193K 2s
-   800K .......... .....[0m[91m.[0m[91m.[0m[91m... .......... .......... .........[0m[91m.[0m[91m 84%  140K 2s
-   850K .......... .....[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m .......... .......... .........[0m[91m. 89%  139K 1s[0m[91m
-   900K .......... .......... .......... ....[0m[91m...... .......... 94%  161K 1s
-   950K .......... ........[0m[91m.[0m[91m. .......... .......... .......... 99%  194K 0s
-  1000K ...                                                   100% 20.5M=11s
+     0K[0m[91m [0m[91m.[0m[91m.[0m[91m........ .......... .......... ...[0m[91m.[0m[91m...... .[0m[91m.........  4% 98.9K 10s
+    50K .......... .......... .......... ....[0m[91m.[0m[91m..... ..........  9%  271K 6s
+   100K .[0m[91m.[0m[91m........ .......... .......... .......... .......... 14%  662K 4s
+   150K .......... .......... .......... .......... .......... 19%  126M 3s
+   200K ...[0m[91m....... .......... .......... .......... .......... 24%  195K 3s
+   250K ....[0m[91m.[0m[91m..... .......... .......... .......... .......... 29%  191K 3s
+   300K .......... .......... .......... .......... .......... 34% 75.5M 2s
+   350K .......... .......... .......... ..........[0m[91m .......... 39%  198K 2s
+   400K .......... .......... .......... .......... .......... 44%  124M 2s
+   450K .......... .......... .......... .......... .......... 49% 62.1M 2s
+   500K .........[0m[91m. .......... .......... .......... ...[0m[91m....... 54%  195K 1s
+   550K ..........[0m[91m .......... .......[0m[91m... .......... .......... 59%  192K 1s
+   600K .......... .......... ........[0m[91m.. .......... .......... 64% 51.4M 1s
+   650K .......... ..[0m[91m........ .......... .......... ......[0m[91m.... 69% 11.1M 1s
+   700K .......... .......... ..........[0m[91m .......... .......[0m[91m... 74%  197K 1s
+   750K .......... .......... .......... .[0m[91m.[0m[91m.[0m[91m....... .......... 79% 11.2M 1s
+   800K .......... .....[0m[91m.[0m[91m.... .......... .......... .......... 84%  194K 0s
+   850K .......... .......... .......... ...[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m [0m[91m.[0m[91m......... 89%  274K 0s[0m[91m
+   900K[0m[91m ........[0m[91m.. .......... .......... ....[0m[91m...... .......... 94%  201K 0s
+   950K .[0m[91m.[0m[91m........ .......... .......... .......... .......... 99%  604K 0s
+  1000K ...                                                   100% 41.1M=3.1s
 
-2019-09-23 06:26:29 (90.8 KB/s) - 'shim-15.tar.bz2' saved [1027215/1027215]
+2019-09-25 01:16:04 (324 KB/s) - 'shim-15.tar.bz2' saved [1027215/1027215]
 
-[0mRemoving intermediate container f2b8502aa61a
- ---> 78b8ffb6117d
+[0mRemoving intermediate container 7d96a01f7cc8
+ ---> 2bc167409b49
 Step 6/26 : RUN bzip2 -dc shim-15.tar.bz2 | tar xvf -
- ---> Running in 8e09a4f98464
+ ---> Running in 291deea2f207
 shim-15/
 shim-15/commit
 shim-15/version.h
@@ -1399,51 +1399,51 @@ shim-15/BUILDING
 shim-15/.travis.yml
 shim-15/.syntastic_c_config
 shim-15/.gitignore
-Removing intermediate container 8e09a4f98464
- ---> 18e3a4db2ecd
+Removing intermediate container 291deea2f207
+ ---> 4a45d0637f06
 Step 7/26 : WORKDIR /build/shim-15
- ---> Running in 25d9b8e7eb8d
-Removing intermediate container 25d9b8e7eb8d
- ---> ef5c040a2a08
+ ---> Running in 6c5e0639f672
+Removing intermediate container 6c5e0639f672
+ ---> 294e439b5ddd
 Step 8/26 : COPY sf-secureboot-signing.der /build/shim-15
- ---> 1a55baa1fdb8
+ ---> ed9d5b2a6f4d
 Step 9/26 : COPY 01-shim-debian-paths.patch /build/
- ---> 75cabe093227
+ ---> 43b103456329
 Step 10/26 : RUN cat /build/01-shim-debian-paths.patch | patch -p1
- ---> Running in 6264cb6cf1ff
+ ---> Running in 65c24f611009
 patching file Make.defaults
-Removing intermediate container 6264cb6cf1ff
- ---> 0af017318405
+Removing intermediate container 65c24f611009
+ ---> 1ed6cda61bea
 Step 11/26 : RUN mkdir /build/target/
- ---> Running in 7cb029cb27b9
-Removing intermediate container 7cb029cb27b9
- ---> eda7bd7b1fcd
+ ---> Running in 8bdc072d7aeb
+Removing intermediate container 8bdc072d7aeb
+ ---> e906031b76db
 Step 12/26 : RUN mkdir /usr/lib/gnuefi/
- ---> Running in 71c5334a7637
-Removing intermediate container 71c5334a7637
- ---> 5224f86b42ab
+ ---> Running in c56357baef1e
+Removing intermediate container c56357baef1e
+ ---> 1a4817b098fa
 Step 13/26 : RUN mkdir -p /usr/lib32/gnuefi/
- ---> Running in e792190f1398
-Removing intermediate container e792190f1398
- ---> 3baf7608637c
+ ---> Running in bba6717c11ee
+Removing intermediate container bba6717c11ee
+ ---> cceb37e73dfe
 Step 14/26 : RUN mkdir -p /usr/lib64/gnuefi/
- ---> Running in 5ade25a18662
-Removing intermediate container 5ade25a18662
- ---> fc47abb1415d
+ ---> Running in 66c03eba03ed
+Removing intermediate container 66c03eba03ed
+ ---> c27a55b27d7b
 Step 15/26 : RUN ln -s /usr/lib/crt0-efi-x86_64.o /usr/lib/gnuefi/crt0-efi-x86_64.o
- ---> Running in 25ad87da152f
-Removing intermediate container 25ad87da152f
- ---> 4f689caa9b6c
+ ---> Running in 08d3885adfd4
+Removing intermediate container 08d3885adfd4
+ ---> da31d3bbd3a6
 Step 16/26 : RUN ln -s /usr/lib32/crt0-efi-ia32.o /usr/lib32/gnuefi/crt0-efi-ia32.o
- ---> Running in c9ff32791e3b
-Removing intermediate container c9ff32791e3b
- ---> b53f469d6726
+ ---> Running in 7b45aeb37c6e
+Removing intermediate container 7b45aeb37c6e
+ ---> f4f16efb448d
 Step 17/26 : RUN ln -s /usr/lib/crt0-efi-x86_64.o /usr/lib64/gnuefi/crt0-efi-x86_64.o
- ---> Running in baae2271fa33
-Removing intermediate container baae2271fa33
- ---> f877d04a7d86
+ ---> Running in 2df778c385bc
+Removing intermediate container 2df778c385bc
+ ---> 0ad0e53ce3b3
 Step 18/26 : RUN make VENDOR_CERT_FILE=sf-secureboot-signing.der
- ---> Running in e786973ee2d3
+ ---> Running in c648490ad7fd
 sed	-e "s,@@VERSION@@,15," \
 	-e "s,@@UNAME@@,Linux x86_64 unknown unknown GNU/Linux," \
 	-e "s,@@COMMIT@@,51413d1deb0df0debdf1d208723131ff0e36d3a3," \
@@ -2006,14 +2006,14 @@ objcopy -j .text -j .sdata -j .data -j .data.ident \
 	-j .rela* -j .reloc -j .eh_frame \
 	-j .vendor_cert \
 	--target efi-app-x86_64 fbx64.so fbx64.efi
-Removing intermediate container e786973ee2d3
- ---> bcd09a3a6e93
+Removing intermediate container c648490ad7fd
+ ---> 7e7f7cb4f662
 Step 19/26 : RUN mv shimx64.efi /build/target/
- ---> Running in 98eff6d03bdd
-Removing intermediate container 98eff6d03bdd
- ---> 056bb4ec0b62
+ ---> Running in 019caa59c2a4
+Removing intermediate container 019caa59c2a4
+ ---> 51c02f1ab52f
 Step 20/26 : RUN make clean ; exit 0
- ---> Running in 226116258d26
+ ---> Running in ffd3bfb1412a
 make -C lib -f /build/shim-15/lib/Makefile clean
 make[1]: Entering directory '/build/shim-15/lib'
 rm -f lib.a
@@ -2070,23 +2070,23 @@ removed 'Cryptlib/SysCall/TimerWrapper.o'
 removed 'Cryptlib/SysCall/memset.o'
 [91mfatal: not a git repository (or any of the parent directories): .git
 [0m[91mmake: *** [Makefile:228: clean-shim-objs] Error 128
-[0mRemoving intermediate container 226116258d26
- ---> 066f34b99567
+[0mRemoving intermediate container ffd3bfb1412a
+ ---> e1f1ecfdd30a
 Step 21/26 : WORKDIR /build/shim-15/Cryptlib/OpenSSL/
- ---> Running in f48acf49dc4c
-Removing intermediate container f48acf49dc4c
- ---> 99f09c93b7a5
+ ---> Running in fcffd249d9d2
+Removing intermediate container fcffd249d9d2
+ ---> d82941ab7c63
 Step 22/26 : RUN make clean ; exit 0
- ---> Running in bec1087f1c50
+ ---> Running in 50530d43769b
 rm -f libopenssl.a crypto/cryptlib.o crypto/mem.o crypto/mem_clr.o crypto/mem_dbg.o crypto/cversion.o crypto/ex_data.o crypto/cpt_err.o crypto/ebcdic.o crypto/uid.o crypto/o_time.o crypto/o_str.o crypto/o_dir.o crypto/o_fips.o crypto/o_init.o crypto/fips_ers.o crypto/md5/md5_dgst.o crypto/md5/md5_one.o crypto/sha/sha_dgst.o crypto/sha/sha1dgst.o crypto/sha/sha_one.o crypto/sha/sha1_one.o crypto/sha/sha256.o crypto/sha/sha512.o crypto/hmac/hmac.o crypto/hmac/hm_ameth.o crypto/hmac/hm_pmeth.o crypto/rc4/rc4_enc.o crypto/rc4/rc4_skey.o crypto/rc4/rc4_utl.o crypto/aes/aes_misc.o crypto/aes/aes_ecb.o crypto/aes/aes_cfb.o crypto/aes/aes_ofb.o crypto/aes/aes_ctr.o crypto/aes/aes_ige.o crypto/aes/aes_wrap.o crypto/aes/aes_core.o crypto/aes/aes_cbc.o crypto/modes/cbc128.o crypto/modes/ctr128.o crypto/modes/cts128.o crypto/modes/cfb128.o crypto/modes/ofb128.o crypto/modes/gcm128.o crypto/modes/ccm128.o crypto/modes/xts128.o crypto/modes/wrap128.o crypto/bn/bn_add.o crypto/bn/bn_div.o crypto/bn/bn_exp.o crypto/bn/bn_lib.o crypto/bn/bn_ctx.o crypto/bn/bn_mul.o crypto/bn/bn_mod.o crypto/bn/bn_print.o crypto/bn/bn_rand.o crypto/bn/bn_shift.o crypto/bn/bn_word.o crypto/bn/bn_blind.o crypto/bn/bn_kron.o crypto/bn/bn_sqrt.o crypto/bn/bn_gcd.o crypto/bn/bn_prime.o crypto/bn/bn_err.o crypto/bn/bn_sqr.o crypto/bn/bn_asm.o crypto/bn/bn_recp.o crypto/bn/bn_mont.o crypto/bn/bn_mpi.o crypto/bn/bn_exp2.o crypto/bn/bn_gf2m.o crypto/bn/bn_nist.o crypto/bn/bn_depr.o crypto/bn/bn_x931p.o crypto/bn/bn_const.o crypto/rsa/rsa_eay.o crypto/rsa/rsa_gen.o crypto/rsa/rsa_lib.o crypto/rsa/rsa_sign.o crypto/rsa/rsa_saos.o crypto/rsa/rsa_err.o crypto/rsa/rsa_pk1.o crypto/rsa/rsa_ssl.o crypto/rsa/rsa_none.o crypto/rsa/rsa_oaep.o crypto/rsa/rsa_chk.o crypto/rsa/rsa_null.o crypto/rsa/rsa_pss.o crypto/rsa/rsa_x931.o crypto/rsa/rsa_asn1.o crypto/rsa/rsa_depr.o crypto/rsa/rsa_ameth.o crypto/rsa/rsa_prn.o crypto/rsa/rsa_pmeth.o crypto/rsa/rsa_crpt.o crypto/dso/dso_dl.o crypto/dso/dso_dlfcn.o crypto/dso/dso_err.o crypto/dso/dso_lib.o crypto/dso/dso_null.o crypto/dso/dso_openssl.o crypto/dso/dso_win32.o crypto/dso/dso_vms.o crypto/dso/dso_beos.o crypto/dh/dh_asn1.o crypto/dh/dh_gen.o crypto/dh/dh_key.o crypto/dh/dh_lib.o crypto/dh/dh_check.o crypto/dh/dh_err.o crypto/dh/dh_depr.o crypto/dh/dh_ameth.o crypto/dh/dh_pmeth.o crypto/dh/dh_prn.o crypto/dh/dh_rfc5114.o crypto/buffer/buffer.o crypto/buffer/buf_str.o crypto/buffer/buf_err.o crypto/bio/bio_lib.o crypto/bio/bio_cb.o crypto/bio/bio_err.o crypto/bio/bss_mem.o crypto/bio/bss_null.o crypto/bio/bss_fd.o crypto/bio/bss_file.o crypto/bio/bss_sock.o crypto/bio/bss_conn.o crypto/bio/bf_null.o crypto/bio/bf_buff.o crypto/bio/b_dump.o crypto/bio/b_print.o crypto/bio/b_sock.o crypto/bio/bss_acpt.o crypto/bio/bf_nbio.o crypto/bio/bss_log.o crypto/bio/bss_bio.o crypto/bio/bss_dgram.o crypto/stack/stack.o crypto/lhash/lhash.o crypto/lhash/lh_stats.o crypto/rand/md_rand.o crypto/rand/randfile.o crypto/rand/rand_lib.o crypto/rand/rand_err.o crypto/rand/rand_unix.o crypto/err/err.o crypto/err/err_all.o crypto/err/err_prn.o crypto/objects/o_names.o crypto/objects/obj_dat.o crypto/objects/obj_lib.o crypto/objects/obj_err.o crypto/objects/obj_xref.o crypto/evp/encode.o crypto/evp/digest.o crypto/evp/evp_enc.o crypto/evp/evp_key.o crypto/evp/evp_acnf.o crypto/evp/evp_cnf.o crypto/evp/e_des.o crypto/evp/e_bf.o crypto/evp/e_idea.o crypto/evp/e_des3.o crypto/evp/e_camellia.o crypto/evp/e_rc4.o crypto/evp/e_aes.o crypto/evp/names.o crypto/evp/e_seed.o crypto/evp/e_xcbc_d.o crypto/evp/e_rc2.o crypto/evp/e_cast.o crypto/evp/e_rc5.o crypto/evp/m_null.o crypto/evp/m_md2.o crypto/evp/m_md4.o crypto/evp/m_md5.o crypto/evp/m_sha.o crypto/evp/m_sha1.o crypto/evp/m_wp.o crypto/evp/m_dss.o crypto/evp/m_dss1.o crypto/evp/m_mdc2.o crypto/evp/m_ripemd.o crypto/evp/m_ecdsa.o crypto/evp/p_open.o crypto/evp/p_seal.o crypto/evp/p_sign.o crypto/evp/p_verify.o crypto/evp/p_lib.o crypto/evp/p_enc.o crypto/evp/p_dec.o crypto/evp/bio_md.o crypto/evp/bio_b64.o crypto/evp/bio_enc.o crypto/evp/evp_err.o crypto/evp/e_null.o crypto/evp/c_all.o crypto/evp/c_allc.o crypto/evp/c_alld.o crypto/evp/evp_lib.o crypto/evp/bio_ok.o crypto/evp/evp_pkey.o crypto/evp/evp_pbe.o crypto/evp/p5_crpt.o crypto/evp/p5_crpt2.o crypto/evp/e_old.o crypto/evp/pmeth_lib.o crypto/evp/pmeth_fn.o crypto/evp/pmeth_gn.o crypto/evp/m_sigver.o crypto/evp/e_aes_cbc_hmac_sha1.o crypto/evp/e_aes_cbc_hmac_sha256.o crypto/evp/e_rc4_hmac_md5.o crypto/asn1/a_object.o crypto/asn1/a_bitstr.o crypto/asn1/a_utctm.o crypto/asn1/a_gentm.o crypto/asn1/a_time.o crypto/asn1/a_int.o crypto/asn1/a_octet.o crypto/asn1/a_print.o crypto/asn1/a_type.o crypto/asn1/a_set.o crypto/asn1/a_dup.o crypto/asn1/a_d2i_fp.o crypto/asn1/a_i2d_fp.o crypto/asn1/a_enum.o crypto/asn1/a_utf8.o crypto/asn1/a_sign.o crypto/asn1/a_digest.o crypto/asn1/a_verify.o crypto/asn1/a_mbstr.o crypto/asn1/a_strex.o crypto/asn1/x_algor.o crypto/asn1/x_val.o crypto/asn1/x_pubkey.o crypto/asn1/x_sig.o crypto/asn1/x_req.o crypto/asn1/x_attrib.o crypto/asn1/x_bignum.o crypto/asn1/x_long.o crypto/asn1/x_name.o crypto/asn1/x_x509.o crypto/asn1/x_x509a.o crypto/asn1/x_crl.o crypto/asn1/x_info.o crypto/asn1/x_spki.o crypto/asn1/nsseq.o crypto/asn1/x_nx509.o crypto/asn1/d2i_pu.o crypto/asn1/d2i_pr.o crypto/asn1/i2d_pu.o crypto/asn1/i2d_pr.o crypto/asn1/t_req.o crypto/asn1/t_x509.o crypto/asn1/t_x509a.o crypto/asn1/t_crl.o crypto/asn1/t_pkey.o crypto/asn1/t_spki.o crypto/asn1/t_bitst.o crypto/asn1/tasn_new.o crypto/asn1/tasn_fre.o crypto/asn1/tasn_enc.o crypto/asn1/tasn_dec.o crypto/asn1/tasn_utl.o crypto/asn1/tasn_typ.o crypto/asn1/tasn_prn.o crypto/asn1/ameth_lib.o crypto/asn1/f_int.o crypto/asn1/f_string.o crypto/asn1/n_pkey.o crypto/asn1/f_enum.o crypto/asn1/x_pkey.o crypto/asn1/a_bool.o crypto/asn1/x_exten.o crypto/asn1/bio_asn1.o crypto/asn1/bio_ndef.o crypto/asn1/asn_mime.o crypto/asn1/asn1_gen.o crypto/asn1/asn1_par.o crypto/asn1/asn1_lib.o crypto/asn1/asn1_err.o crypto/asn1/a_bytes.o crypto/asn1/a_strnid.o crypto/asn1/evp_asn1.o crypto/asn1/asn_pack.o crypto/asn1/p5_pbe.o crypto/asn1/p5_pbev2.o crypto/asn1/p8_pkey.o crypto/asn1/asn_moid.o crypto/pem/pem_sign.o crypto/pem/pem_seal.o crypto/pem/pem_info.o crypto/pem/pem_lib.o crypto/pem/pem_all.o crypto/pem/pem_err.o crypto/pem/pem_x509.o crypto/pem/pem_xaux.o crypto/pem/pem_oth.o crypto/pem/pem_pk8.o crypto/pem/pem_pkey.o crypto/pem/pvkfmt.o crypto/x509/x509_def.o crypto/x509/x509_d2.o crypto/x509/x509_r2x.o crypto/x509/x509_cmp.o crypto/x509/x509_obj.o crypto/x509/x509_req.o crypto/x509/x509spki.o crypto/x509/x509_vfy.o crypto/x509/x509_set.o crypto/x509/x509cset.o crypto/x509/x509rset.o crypto/x509/x509_err.o crypto/x509/x509name.o crypto/x509/x509_v3.o crypto/x509/x509_ext.o crypto/x509/x509_att.o crypto/x509/x509type.o crypto/x509/x509_lu.o crypto/x509/x_all.o crypto/x509/x509_txt.o crypto/x509/x509_trs.o crypto/x509/x509_vpm.o crypto/x509v3/v3_bcons.o crypto/x509v3/v3_bitst.o crypto/x509v3/v3_conf.o crypto/x509v3/v3_extku.o crypto/x509v3/v3_ia5.o crypto/x509v3/v3_lib.o crypto/x509v3/v3_prn.o crypto/x509v3/v3_utl.o crypto/x509v3/v3err.o crypto/x509v3/v3_genn.o crypto/x509v3/v3_alt.o crypto/x509v3/v3_skey.o crypto/x509v3/v3_akey.o crypto/x509v3/v3_pku.o crypto/x509v3/v3_int.o crypto/x509v3/v3_enum.o crypto/x509v3/v3_sxnet.o crypto/x509v3/v3_cpols.o crypto/x509v3/v3_crld.o crypto/x509v3/v3_purp.o crypto/x509v3/v3_info.o crypto/x509v3/v3_ocsp.o crypto/x509v3/v3_akeya.o crypto/x509v3/v3_pmaps.o crypto/x509v3/v3_pcons.o crypto/x509v3/v3_ncons.o crypto/x509v3/v3_pcia.o crypto/x509v3/v3_pci.o crypto/x509v3/pcy_cache.o crypto/x509v3/pcy_node.o crypto/x509v3/pcy_data.o crypto/x509v3/pcy_map.o crypto/x509v3/pcy_tree.o crypto/x509v3/pcy_lib.o crypto/x509v3/v3_asid.o crypto/x509v3/v3_addr.o crypto/conf/conf_err.o crypto/conf/conf_lib.o crypto/conf/conf_api.o crypto/conf/conf_def.o crypto/conf/conf_mod.o crypto/conf/conf_mall.o crypto/conf/conf_sap.o crypto/txt_db/txt_db.o crypto/pkcs7/pk7_asn1.o crypto/pkcs7/pk7_lib.o crypto/pkcs7/pkcs7err.o crypto/pkcs7/pk7_doit.o crypto/pkcs7/pk7_smime.o crypto/pkcs7/pk7_attr.o crypto/pkcs7/pk7_mime.o crypto/pkcs7/bio_pk7.o crypto/pkcs12/p12_add.o crypto/pkcs12/p12_asn.o crypto/pkcs12/p12_attr.o crypto/pkcs12/p12_crpt.o crypto/pkcs12/p12_crt.o crypto/pkcs12/p12_decr.o crypto/pkcs12/p12_init.o crypto/pkcs12/p12_key.o crypto/pkcs12/p12_kiss.o crypto/pkcs12/p12_mutl.o crypto/pkcs12/p12_utl.o crypto/pkcs12/p12_npas.o crypto/pkcs12/pk12err.o crypto/pkcs12/p12_p8d.o crypto/pkcs12/p12_p8e.o crypto/comp/comp_lib.o crypto/comp/comp_err.o crypto/comp/c_rle.o crypto/comp/c_zlib.o crypto/ocsp/ocsp_asn.o crypto/ocsp/ocsp_ext.o crypto/ocsp/ocsp_ht.o crypto/ocsp/ocsp_lib.o crypto/ocsp/ocsp_cl.o crypto/ocsp/ocsp_srv.o crypto/ocsp/ocsp_prn.o crypto/ocsp/ocsp_vfy.o crypto/ocsp/ocsp_err.o crypto/cmac/cmac.o crypto/cmac/cm_ameth.o crypto/cmac/cm_pmeth.o 
-Removing intermediate container bec1087f1c50
- ---> ce6deb37bc20
+Removing intermediate container 50530d43769b
+ ---> b8642e1db288
 Step 23/26 : WORKDIR /build/shim-15
- ---> Running in fc2787009529
-Removing intermediate container fc2787009529
- ---> 8196f9015f68
+ ---> Running in 183d5fe9e623
+Removing intermediate container 183d5fe9e623
+ ---> e55fedbdb502
 Step 24/26 : RUN setarch linux32 make ARCH=ia32 VENDOR_CERT_FILE=sf-secureboot-signing.der
- ---> Running in aafce2b3856f
+ ---> Running in 4166bf0f2b8b
 sed	-e "s,@@VERSION@@,15," \
 	-e "s,@@UNAME@@,Linux i686 unknown unknown GNU/Linux," \
 	-e "s,@@COMMIT@@,51413d1deb0df0debdf1d208723131ff0e36d3a3," \
@@ -2652,17 +2652,17 @@ objcopy -j .text -j .sdata -j .data -j .data.ident \
 	-j .rela* -j .reloc -j .eh_frame \
 	-j .vendor_cert \
 	--target efi-app-ia32 fbia32.so fbia32.efi
-Removing intermediate container aafce2b3856f
- ---> 5d7b5279d68c
+Removing intermediate container 4166bf0f2b8b
+ ---> 0856b6573505
 Step 25/26 : RUN mv shimia32.efi /build/target/
- ---> Running in 55826220691d
-Removing intermediate container 55826220691d
- ---> 6bcf8aa8db3c
-Step 26/26 : RUN sha512sum /build/target/*
- ---> Running in 10d2333a8645
-14588c860d7b5231e312079133190cd12df3efd223851affb86ae594d79038e72908ba3a698c55fc9dc0a8ea7eb30df5d092c5d41a366beb0d8abc2c809cc4a9  /build/target/shimia32.efi
-037334ac6d49299122d732850a18d9021a437f92a1645d8dbbff3c0436c2b114838bf60d85789f512c4bb990353c3ef9089909af7a0055e7c5eb38e1b0eb9b2a  /build/target/shimx64.efi
-Removing intermediate container 10d2333a8645
- ---> c1de8084b1be
-Successfully built c1de8084b1be
+ ---> Running in 00d3f4244987
+Removing intermediate container 00d3f4244987
+ ---> 41b5bc39b301
+Step 26/26 : RUN sha256sum /build/target/*
+ ---> Running in 47f43de5ced0
+f62b06a77a9b0be006343f416db04e622f26cafbff31a656830ebbdbbd083668  /build/target/shimia32.efi
+4cfc201a2d43d343f8623dfb9c571a2f477847efc1d51f61990ca77b656b304a  /build/target/shimx64.efi
+Removing intermediate container 47f43de5ced0
+ ---> 939a4fbc9440
+Successfully built 939a4fbc9440
 Successfully tagged shim-build:latest
