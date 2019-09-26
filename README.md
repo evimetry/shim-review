@@ -42,7 +42,7 @@ Who is the primary contact for security updates, etc.
 - Name: Bradley Schatz
 - Position: Director
 - Email address: bradley@schatzforensic.com
-- PGP key, signed by the other security contact: https://github.com/evimetry/shim-review/keys/blschatz.pub
+- PGP key, signed by the other security contact: https://github.com/evimetry/shim-review/blob/master/keys/blschatz.pub
 
 -------------------------------------------------------------------------------
 Who is the secondary contact for security updates, etc.
@@ -50,7 +50,7 @@ Who is the secondary contact for security updates, etc.
 - Name: Darran Kartaschew
 - Position: Development Lead
 - Email address: darran@schatzforensic.com
-- PGP key, signed by the other security contacts: https://github.com/evimetry/shim-review/keys/dkartaschew.pub
+- PGP key, signed by the other security contacts: https://github.com/evimetry/shim-review/blob/master/keys/dkartaschew.pub
 
 -------------------------------------------------------------------------------
 What upstream shim tag is this starting from:
@@ -84,6 +84,6 @@ This was built on Debian Bionic (x64) as of 26 Sept 2019.
 -------------------------------------------------------------------------------
 Which files in this repo are the logs for your build?   This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.
 -------------------------------------------------------------------------------
-https://github.com/evimetry/shim-review/build.log
+https://github.com/evimetry/shim-review/blob/master/build.log
 
 
