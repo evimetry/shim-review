@@ -18,19 +18,23 @@ Here's the template:
 -------------------------------------------------------------------------------
 What organization or people are asking to have this signed:
 -------------------------------------------------------------------------------
-Schatz Forensic Pty. Ltd. https://schatzforensic.com/
+Schatz Forensic Pty. Ltd. 
+[https://schatzforensic.com/](https://schatzforensic.com/)
 
 -------------------------------------------------------------------------------
 What product or service is this for:
 -------------------------------------------------------------------------------
-Evimetry Deadboot v3.2.4.1 https://evimetry.com/
+Evimetry Deadboot v3.2.4.1 
+[https://evimetry.com/evimetry-imager/](https://evimetry.com/evimetry-imager/)
 
 -------------------------------------------------------------------------------
 What's the justification that this really does need to be signed for the whole world to be able to boot it:
 -------------------------------------------------------------------------------
-Our linux-based forensic OS is used by forensic practitioners for forensics on bare metal 
-laptops, servers, and cloud based virtual computers. This includes both x64 and ia32 based 
-secure boot. Our kernel includes out of mainline patches supporting write blocking (preventing writes).
+Our linux-based forensic OS is used for forensics on bare-metal 
+laptops, servers, and virtual computers. This includes both x64 and ia32 based 
+secure boot, in addition to earlier BIOS/CSM and non-secureboot UEFI. 
+
+Our kernel includes out of mainline patches supporting write blocking (preventing writes). 
 
 -------------------------------------------------------------------------------
 Who is the primary contact for security updates, etc.
@@ -38,7 +42,7 @@ Who is the primary contact for security updates, etc.
 - Name: Bradley Schatz
 - Position: Director
 - Email address: bradley@schatzforensic.com
-- PGP key, signed by the other security contacts, and preferably also with signatures that are reasonably well known in the linux community:
+- PGP key, signed by the other security contact: https://github.com/evimetry/shim-review/keys/blschatz.pub
 
 -------------------------------------------------------------------------------
 Who is the secondary contact for security updates, etc.
@@ -46,29 +50,36 @@ Who is the secondary contact for security updates, etc.
 - Name: Darran Kartaschew
 - Position: Development Lead
 - Email address: darran@schatzforensic.com
-- PGP key, signed by the other security contacts, and preferably also with signatures that are reasonably well known in the linux community:
+- PGP key, signed by the other security contacts: https://github.com/evimetry/shim-review/keys/dkartaschew.pub
 
 -------------------------------------------------------------------------------
 What upstream shim tag is this starting from:
 -------------------------------------------------------------------------------
-https://github.com/rhboot/shim/releases/tag/15
+https://github.com/rhboot/shim/tree/15 + commits up to 
+https://github.com/rhboot/shim/commit/3beb971b10659cf78144ddc5eeea83501384440c
 
 -------------------------------------------------------------------------------
 URL for a repo that contains the exact code which was built to get this binary:
 -------------------------------------------------------------------------------
-https://github.com/rhboot/shim/releases/tag/15
+https://github.com/evimetry/shim/tree/shim-review
 
 -------------------------------------------------------------------------------
 What patches are being applied and why:
 -------------------------------------------------------------------------------
-None
+Single patch added from shim-16 for broad compatibility with non-secureboot UEFI implementations.
+* https://github.com/rhboot/shim/commit/741c61abba7d5c74166f8d0c1b9ee8001ebcd186
+	- Make EFI variable copying fatal only on secureboot enabled systems
+
+
 
 -------------------------------------------------------------------------------
 What OS and toolchain must we use to reproduce this build?  Include where to find it, etc.  We're going to try to reproduce your build as close as possible to verify that it's really a build of the source tree you tell us it is, so these need to be fairly thorough. At the very least include the specific versions of gcc, binutils, and gnu-efi which were used, and where to find those binaries.
 -------------------------------------------------------------------------------
-It can be built on the Debian bionic docker image. A Dockerfile has been supplied at XXX. It can be used to reproduce the entire build using the release tarball from github. Use like so:
+It can be built on the Debian Bionic docker image. A Dockerfile has been supplied at https://github.com/evimetry/shim-review/Dockerfile . It can be used to reproduce the entire build. Use like so:
 
-sudo docker build -f Dockerfile -t evimetry-3.2.4.1-shim-review .
+`docker build -f Dockerfile -t evimetry-3.2.4.1-shim-review .`
+
+This was built on Debian Bionic (x64) as of 26 Sept 2019.
 
 -------------------------------------------------------------------------------
 Which files in this repo are the logs for your build?   This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.
