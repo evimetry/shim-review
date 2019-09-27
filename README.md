@@ -75,11 +75,11 @@ Single patch added from shim-16 for broad compatibility with non-secureboot UEFI
 -------------------------------------------------------------------------------
 What OS and toolchain must we use to reproduce this build?  Include where to find it, etc.  We're going to try to reproduce your build as close as possible to verify that it's really a build of the source tree you tell us it is, so these need to be fairly thorough. At the very least include the specific versions of gcc, binutils, and gnu-efi which were used, and where to find those binaries.
 -------------------------------------------------------------------------------
-It can be built on the Debian Bionic docker image. A Dockerfile has been supplied at https://github.com/evimetry/shim-review/blob/master/Dockerfile . It can be used to reproduce the entire build. Use like so:
+It can be built on the Debian Buster docker image. A Dockerfile has been supplied at https://github.com/evimetry/shim-review/blob/master/Dockerfile . It can be used to reproduce the entire build. Use like so:
 
 `docker build -f Dockerfile -t evimetry-3.2.4.1-shim-review .`
 
-This was built on Debian Bionic (x64) as of 26 Sept 2019.
+This was built on Debian Buster (x64) as of 26 Sept 2019.
 
 -------------------------------------------------------------------------------
 Which files in this repo are the logs for your build?   This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.

@@ -1,13 +1,20 @@
 Make sure you have provided the following information:
 
- - [ ] link to your code branch cloned from rhboot/shim-review in the form user/repo@tag
- - [ ] completed README.md file with the necessary information
- - [ ] shim.efi to be signed
- - [ ] public portion of your certificate embedded in shim (the file passed to VENDOR_CERT_FILE)
- - [ ] any extra patches to shim via your own git tree or as files
- - [ ] any extra patches to grub via your own git tree or as files
- - [ ] build logs
-
+ - [x] link to your code branch cloned from rhboot/shim-review in the form user/repo@tag
+ https://github.com/evimetry/shim-review/tree/schatzforensic-shim-ia32-x64-20190926
+ - [x] completed README.md file with the necessary information
+ https://github.com/evimetry/shim-review/blob/schatzforensic-shim-ia32-x64-20190926/README.md
+ - [x] shim.efi to be signed
+ https://github.com/evimetry/shim-review/blob/schatzforensic-shim-ia32-x64-20190926/shimia32.efi
+ https://github.com/evimetry/shim-review/blob/schatzforensic-shim-ia32-x64-20190926/shimx64.efi
+ - [x] public portion of your certificate embedded in shim (the file passed to VENDOR_CERT_FILE)
+ https://github.com/evimetry/shim-review/blob/schatzforensic-shim-ia32-x64-20190926/sf-secureboot-signing.der
+ - [x] any extra patches to shim via your own git tree or as files
+ https://github.com/evimetry/shim-review/blob/schatzforensic-shim-ia32-x64-20190926/0001-MokListRT-Fatal.patch
+ - [x] any extra patches to grub via your own git tree or as files
+ See README.md
+ - [x] build logs
+https://github.com/evimetry/shim-review/blob/schatzforensic-shim-ia32-x64-20190926/build.log
 
 ###### What organization or people are asking to have this signed:
 Schatz Forensic Pty. Ltd. 
