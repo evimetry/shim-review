@@ -67,11 +67,11 @@ What patches are being applied and why:
 -------------------------------------------------------------------------------
 Add exact same patches as Ubuntu Shim https://github.com/rhboot/shim-review/issues/82 :
 
--d/p/Fix-OBJ_create-to-tolerate-a-NULL-sn-and-ln.patch: Fix NULL pointer dereference when calling OBJ_create() that leads to an exception error on arm64. (LP: #1811901)
--debian/patches/MokManager-avoid-unaligned.patch: Fix compilation with GCC9: avoid -Werror=address-of-packed-member errors in MokManager.
--debian/patches/tpm-correctness-1.patch, debian/patches/tpm-correctness-2.patch: fix issues in TPM calls to ensure the measurements are consistent with what is entered in the TPM event log.
--debian/patches/tpm-correctness-3.patch: Don't log duplicate identical TPM events.
--debian/patches/MokManager-hidpi-support.patch: Do a little bit more to try to get a more usable screen resolution for MokManager when running on HiDPI screens; by trying to detect such cases and switching to mode 0.
+- d/p/Fix-OBJ_create-to-tolerate-a-NULL-sn-and-ln.patch: Fix NULL pointer dereference when calling OBJ_create() that leads to an exception error on arm64. (LP: #1811901)
+- debian/patches/MokManager-avoid-unaligned.patch: Fix compilation with GCC9: avoid -Werror=address-of-packed-member errors in MokManager.
+- debian/patches/tpm-correctness-1.patch, debian/patches/tpm-correctness-2.patch: fix issues in TPM calls to ensure the measurements are consistent with what is entered in the TPM event log.
+- debian/patches/tpm-correctness-3.patch: Don't log duplicate identical TPM events.
+- debian/patches/MokManager-hidpi-support.patch: Do a little bit more to try to get a more usable screen resolution for MokManager when running on HiDPI screens; by trying to detect such cases and switching to mode 0.
 
 -------------------------------------------------------------------------------
 What OS and toolchain must we use to reproduce this build?  Include where to find it, etc.  We're going to try to reproduce your build as close as possible to verify that it's really a build of the source tree you tell us it is, so these need to be fairly thorough. At the very least include the specific versions of gcc, binutils, and gnu-efi which were used, and where to find those binaries.
