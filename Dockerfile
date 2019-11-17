@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:buster-20191014
 
 RUN apt-get -y -qq update
 RUN apt-get -y -qq install build-essential git gnu-efi libpopt-dev libefivar-dev uuid-dev
