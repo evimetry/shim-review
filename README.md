@@ -30,7 +30,7 @@ Evimetry Deadboot v3.2.4.1
 -------------------------------------------------------------------------------
 What's the justification that this really does need to be signed for the whole world to be able to boot it:
 -------------------------------------------------------------------------------
-Our linux-based forensic OS is used for forensics on bare-metal 
+Our Linux-based forensic OS is used for forensics on bare-metal 
 laptops, servers, and virtual computers. This includes both x64 and ia32 based 
 secure boot, in addition to earlier BIOS/CSM and non-secureboot UEFI. 
 
@@ -55,31 +55,32 @@ Who is the secondary contact for security updates, etc.
 -------------------------------------------------------------------------------
 What upstream shim tag is this starting from:
 -------------------------------------------------------------------------------
-https://github.com/rhboot/shim/tree/15 + commits up to 
-https://github.com/rhboot/shim/commit/3beb971b10659cf78144ddc5eeea83501384440c
+15 + commits up to a4a1fbe with added patches
 
 -------------------------------------------------------------------------------
 URL for a repo that contains the exact code which was built to get this binary:
 -------------------------------------------------------------------------------
-https://github.com/evimetry/shim/tree/shim-review
+https://github.com/evimetry/shim
 
 -------------------------------------------------------------------------------
 What patches are being applied and why:
 -------------------------------------------------------------------------------
-Single patch added from shim-16 for broad compatibility with non-secureboot UEFI implementations.
-* https://github.com/rhboot/shim/commit/741c61abba7d5c74166f8d0c1b9ee8001ebcd186
-	- Make EFI variable copying fatal only on secureboot enabled systems
+Add exact same patches as Ubuntu Shim https://github.com/rhboot/shim-review/issues/82 :
 
-
+- d/p/Fix-OBJ_create-to-tolerate-a-NULL-sn-and-ln.patch: Fix NULL pointer dereference when calling OBJ_create() that leads to an exception error on arm64. (LP: #1811901)
+- debian/patches/MokManager-avoid-unaligned.patch: Fix compilation with GCC9: avoid -Werror=address-of-packed-member errors in MokManager.
+- debian/patches/tpm-correctness-1.patch, debian/patches/tpm-correctness-2.patch: fix issues in TPM calls to ensure the measurements are consistent with what is entered in the TPM event log.
+- debian/patches/tpm-correctness-3.patch: Don't log duplicate identical TPM events.
+- debian/patches/MokManager-hidpi-support.patch: Do a little bit more to try to get a more usable screen resolution for MokManager when running on HiDPI screens; by trying to detect such cases and switching to mode 0.
 
 -------------------------------------------------------------------------------
 What OS and toolchain must we use to reproduce this build?  Include where to find it, etc.  We're going to try to reproduce your build as close as possible to verify that it's really a build of the source tree you tell us it is, so these need to be fairly thorough. At the very least include the specific versions of gcc, binutils, and gnu-efi which were used, and where to find those binaries.
 -------------------------------------------------------------------------------
-It can be built on the Debian Buster docker image. A Dockerfile has been supplied at https://github.com/evimetry/shim-review/blob/master/Dockerfile . It can be used to reproduce the entire build. Use like so:
+It can be built on the Debian Buster docker image (buster-20191014-slim). A Dockerfile has been supplied at https://github.com/evimetry/shim-review/blob/master/Dockerfile . It can be used to reproduce the entire build. Use like so:
 
 `docker build -f Dockerfile -t evimetry-3.2.4.1-shim-review .`
 
-This was built on Debian Buster (x64) as of 26 Sept 2019.
+This was built on Debian Buster (x64) as of 17 Nov 2019.
 
 -------------------------------------------------------------------------------
 Which files in this repo are the logs for your build?   This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.

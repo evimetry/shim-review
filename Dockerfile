@@ -1,14 +1,24 @@
-FROM debian:buster-20191014
+FROM debian:buster-20191014-slim
 
 RUN apt-get -y -qq update
 RUN apt-get -y -qq install build-essential git gnu-efi libpopt-dev libefivar-dev uuid-dev
 WORKDIR /build
 RUN git clone https://github.com/rhboot/shim.git
 WORKDIR /build/shim
-RUN git checkout 3beb971b10659cf78144ddc5eeea83501384440c
+RUN git checkout a4a1fbe728c9545fc5647129df0cf1593b953bec 
 COPY sf-secureboot-signing.der /build/shim
-COPY 0001-MokListRT-Fatal.patch /build/
-RUN cat /build/0001-MokListRT-Fatal.patch | patch -p1
+COPY patches/Fix-OBJ_create-to-tolerate-a-NULL-sn-and-ln.patch /build/
+COPY patches/MokManager-hidpi-support.patch /build/
+COPY patches/tpm-correctness-2.patch /build/
+COPY patches/MokManager-avoid-unaligned.patch /build/
+COPY patches/tpm-correctness-1.patch /build/
+COPY patches/tpm-correctness-3.patch /build/
+RUN cat /build/Fix-OBJ_create-to-tolerate-a-NULL-sn-and-ln.patch | patch -p1
+RUN cat /build/MokManager-hidpi-support.patch | patch -p1
+RUN cat /build/tpm-correctness-2 | patch -p1
+RUN cat /build/MokManager-avoid-unaligned.patch | patch -p1
+RUN cat /build/tpm-correctness-1.patch | patch -p1
+RUN cat /build/tpm-correctness-2.patch | patch -p1
 RUN mkdir /build/target/
 RUN mkdir /usr/lib/gnuefi/
 RUN mkdir -p /usr/lib32/gnuefi/
