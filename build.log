@@ -1,4 +1,4 @@
-Sending build context to Docker daemon  5.306MB
+Sending build context to Docker daemon  6.317MB
 Step 1/35 : FROM debian:buster-20191014-slim
 buster-20191014-slim: Pulling from library/debian
 8d691f585fa8: Pulling fs layer
@@ -9,11 +9,11 @@ Digest: sha256:11253793361a12861562d1d7b15b8b7e25ac30dd631e3d206ed1ca969bf97b7d
 Status: Downloaded newer image for debian:buster-20191014-slim
  ---> 105ec214185d
 Step 2/35 : RUN apt-get -y -qq update
- ---> Running in 29c48eae5b7a
-Removing intermediate container 29c48eae5b7a
- ---> b14e81338d8f
+ ---> Running in 28bd4fe18f7d
+Removing intermediate container 28bd4fe18f7d
+ ---> 49832ced028d
 Step 3/35 : RUN apt-get -y -qq install build-essential git gnu-efi libpopt-dev libefivar-dev uuid-dev
- ---> Running in 2648fe85629d
+ ---> Running in 444bda2c604e
 [91mdebconf: delaying package configuration, since apt-utils is not installed
 [0mSelecting previously unselected package perl-modules-5.28.
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6457 files and directories currently installed.)
@@ -251,11 +251,11 @@ Selecting previously unselected package liberror-perl.
 Preparing to unpack .../077-liberror-perl_0.17027-2_all.deb ...
 Unpacking liberror-perl (0.17027-2) ...
 Selecting previously unselected package git-man.
-Preparing to unpack .../078-git-man_1%3a2.20.1-2_all.deb ...
-Unpacking git-man (1:2.20.1-2) ...
+Preparing to unpack .../078-git-man_1%3a2.20.1-2+deb10u1_all.deb ...
+Unpacking git-man (1:2.20.1-2+deb10u1) ...
 Selecting previously unselected package git.
-Preparing to unpack .../079-git_1%3a2.20.1-2_amd64.deb ...
-Unpacking git (1:2.20.1-2) ...
+Preparing to unpack .../079-git_1%3a2.20.1-2+deb10u1_amd64.deb ...
+Unpacking git (1:2.20.1-2+deb10u1) ...
 Selecting previously unselected package gnu-efi.
 Preparing to unpack .../080-gnu-efi_3.0.9-1_amd64.deb ...
 Unpacking gnu-efi (3.0.9-1) ...
@@ -419,7 +419,7 @@ Setting up libmpx2:amd64 (8.3.0-6) ...
 Setting up libubsan1:amd64 (8.3.0-6) ...
 Setting up libisl19:amd64 (0.20-2) ...
 Setting up libefivar1:amd64 (37-2) ...
-Setting up git-man (1:2.20.1-2) ...
+Setting up git-man (1:2.20.1-2+deb10u1) ...
 Setting up libssh2-1:amd64 (1.8.0-2.1) ...
 Setting up netbase (5.6) ...
 Setting up libkrb5-3:amd64 (1.17-3) ...
@@ -485,7 +485,7 @@ Setting up libfile-fcntllock-perl (0.22-3+b5) ...
 Setting up libalgorithm-diff-perl (1.19.03-2) ...
 Setting up dpkg-dev (1.19.7) ...
 Setting up liberror-perl (0.17027-2) ...
-Setting up git (1:2.20.1-2) ...
+Setting up git (1:2.20.1-2+deb10u1) ...
 Setting up g++ (4:8.3.0-1) ...
 update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
 Setting up gnupg (2.2.12-1+deb10u1) ...
@@ -498,23 +498,23 @@ Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
-Removing intermediate container 2648fe85629d
- ---> 136937b086a2
+Removing intermediate container 444bda2c604e
+ ---> 436903ec4771
 Step 4/35 : WORKDIR /build
- ---> Running in f6c37dd9244b
-Removing intermediate container f6c37dd9244b
- ---> ab8c34fb4524
+ ---> Running in 7c710af13686
+Removing intermediate container 7c710af13686
+ ---> 5f1aa7349fd6
 Step 5/35 : RUN git clone https://github.com/rhboot/shim.git
- ---> Running in 8d8037ea73dd
+ ---> Running in 5421767775cf
 [91mCloning into 'shim'...
-[0mRemoving intermediate container 8d8037ea73dd
- ---> 4612f089f473
+[0mRemoving intermediate container 5421767775cf
+ ---> bf3f2147e7be
 Step 6/35 : WORKDIR /build/shim
- ---> Running in ff782255879e
-Removing intermediate container ff782255879e
- ---> 9b1bc978e010
+ ---> Running in 218f2824fcfc
+Removing intermediate container 218f2824fcfc
+ ---> 402ab03622ff
 Step 7/35 : RUN git checkout a4a1fbe728c9545fc5647129df0cf1593b953bec
- ---> Running in 4f090936a57c
+ ---> Running in f1283482b197
 [91mNote: checking out 'a4a1fbe728c9545fc5647129df0cf1593b953bec'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -527,77 +527,78 @@ do so (now or later) by using -b with the checkout command again. Example:
   git checkout -b <new-branch-name>
 
 [0m[91mHEAD is now at a4a1fbe Once again, try even harder to get binaries without timestamps in them.
-[0mRemoving intermediate container 4f090936a57c
- ---> e7ed9c8063d4
+[0mRemoving intermediate container f1283482b197
+ ---> 87e55e5e0d4e
 Step 8/35 : COPY sf-secureboot-signing.der /build/shim
- ---> f827b18a684b
+ ---> 31b78f88e314
 Step 9/35 : COPY patches/Fix-OBJ_create-to-tolerate-a-NULL-sn-and-ln.patch /build/
- ---> 2648e899f8ee
+ ---> 0ca343b0f258
 Step 10/35 : COPY patches/MokManager-hidpi-support.patch /build/
- ---> ac64f71ff084
-Step 11/35 : COPY patches/tpm-correctness-2.patch /build/
- ---> b50f3ffa00aa
-Step 12/35 : COPY patches/MokManager-avoid-unaligned.patch /build/
- ---> 05270147ad28
-Step 13/35 : COPY patches/tpm-correctness-1.patch /build/
- ---> bafb3e5cd9f8
+ ---> 99c2418c5d3f
+Step 11/35 : COPY patches/MokManager-avoid-unaligned.patch /build/
+ ---> 3e7540b5b8a4
+Step 12/35 : COPY patches/tpm-correctness-1.patch /build/
+ ---> 18ff567a65cd
+Step 13/35 : COPY patches/tpm-correctness-2.patch /build/
+ ---> 2c006e381628
 Step 14/35 : COPY patches/tpm-correctness-3.patch /build/
- ---> b748a140be79
+ ---> d035005fd84e
 Step 15/35 : RUN cat /build/Fix-OBJ_create-to-tolerate-a-NULL-sn-and-ln.patch | patch -p1
- ---> Running in f5d6e46fedbd
+ ---> Running in 14330f74f968
 patching file Cryptlib/OpenSSL/crypto/objects/obj_dat.c
-Removing intermediate container f5d6e46fedbd
- ---> 4d9a683e028b
+Removing intermediate container 14330f74f968
+ ---> 55ba59b4c116
 Step 16/35 : RUN cat /build/MokManager-hidpi-support.patch | patch -p1
- ---> Running in d801972ee3b8
+ ---> Running in c87f811b56eb
 patching file MokManager.c
 patching file include/console.h
 patching file lib/console.c
-Removing intermediate container d801972ee3b8
- ---> 720d2896ae80
-Step 17/35 : RUN cat /build/tpm-correctness-2 | patch -p1
- ---> Running in 347a1f438270
-[91mcat: /build/tpm-correctness-2[0m[91m: No such file or directory
-[0mRemoving intermediate container 347a1f438270
- ---> 509516c6152a
-Step 18/35 : RUN cat /build/MokManager-avoid-unaligned.patch | patch -p1
- ---> Running in f3ccad49484d
+Removing intermediate container c87f811b56eb
+ ---> 3ef1ed2ee045
+Step 17/35 : RUN cat /build/MokManager-avoid-unaligned.patch | patch -p1
+ ---> Running in 5b021eeaddb9
 patching file MokManager.c
-Removing intermediate container f3ccad49484d
- ---> 74a84d09a40f
-Step 19/35 : RUN cat /build/tpm-correctness-1.patch | patch -p1
- ---> Running in dd0035429dfb
+Removing intermediate container 5b021eeaddb9
+ ---> af9edad70ff9
+Step 18/35 : RUN cat /build/tpm-correctness-1.patch | patch -p1
+ ---> Running in 1ec030b39150
 patching file tpm.c
 Hunk #1 succeeded at 231 (offset -2 lines).
-Removing intermediate container dd0035429dfb
- ---> 18c16b3441d3
-Step 20/35 : RUN cat /build/tpm-correctness-2.patch | patch -p1
- ---> Running in 4943ce8c3d14
+Removing intermediate container 1ec030b39150
+ ---> b390ab2a0b72
+Step 19/35 : RUN cat /build/tpm-correctness-2.patch | patch -p1
+ ---> Running in edaf0d1206f4
 patching file tpm.c
-Removing intermediate container 4943ce8c3d14
- ---> c3a07c7a26f4
+Removing intermediate container edaf0d1206f4
+ ---> b1e4ffae269c
+Step 20/35 : RUN cat /build/tpm-correctness-3.patch | patch -p1
+ ---> Running in 41f270506b96
+patching file tpm.c
+Hunk #1 succeeded at 241 (offset 2 lines).
+Removing intermediate container 41f270506b96
+ ---> 349aa312d506
 Step 21/35 : RUN mkdir /build/target/
- ---> Running in c136607d89d4
-Removing intermediate container c136607d89d4
- ---> 03fa431fc73b
+ ---> Running in a688b9085546
+Removing intermediate container a688b9085546
+ ---> 86022c38c232
 Step 22/35 : RUN mkdir /usr/lib/gnuefi/
- ---> Running in ae67cd6c0b1b
-Removing intermediate container ae67cd6c0b1b
- ---> 3fc3b2dc59c8
+ ---> Running in c479c6e206f8
+Removing intermediate container c479c6e206f8
+ ---> 0bc0e7507da2
 Step 23/35 : RUN mkdir -p /usr/lib32/gnuefi/
- ---> Running in fa4294e6380a
-Removing intermediate container fa4294e6380a
- ---> 8c047ab5b362
+ ---> Running in e4a2c6a555b6
+Removing intermediate container e4a2c6a555b6
+ ---> bcad459dcff1
 Step 24/35 : RUN ln -s /usr/lib/crt0-efi-x86_64.o /usr/lib/gnuefi/crt0-efi-x86_64.o
- ---> Running in e1c5f8b9a096
-Removing intermediate container e1c5f8b9a096
- ---> e05516afe3d7
+ ---> Running in b205fd65d16c
+Removing intermediate container b205fd65d16c
+ ---> 0707425008fa
 Step 25/35 : RUN ln -s /usr/lib32/crt0-efi-ia32.o /usr/lib32/gnuefi/crt0-efi-ia32.o
- ---> Running in 5e43214cf2a3
-Removing intermediate container 5e43214cf2a3
- ---> 0f1b4049386b
+ ---> Running in be41fd6039e1
+Removing intermediate container be41fd6039e1
+ ---> 68e0f8ee09c6
 Step 26/35 : RUN make VENDOR_CERT_FILE=sf-secureboot-signing.der LIBDIR=/usr/lib
- ---> Running in 1bc1aa6fd726
+ ---> Running in d50926a8a15c
 sed	-e "s,@@VERSION@@,15," \
 	-e "s,@@UNAME@@,Linux x86_64 unknown unknown GNU/Linux," \
 	-e "s,@@COMMIT@@,a4a1fbe728c9545fc5647129df0cf1593b953bec," \
@@ -1094,7 +1095,7 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=shimx64.efi
 [91m4+0 records in
 4+0 records out
-[0m[91m4 bytes copied, 0.000812303 s, 4.9 kB/s[0m[91m
+[0m[91m4 bytes copied, 0.000728593 s, 5.5 kB/s[0m[91m
 [0mobjcopy -D -j .text -j .sdata -j .data \
 	-j .dynamic -j .dynsym -j .rel* \
 	-j .rela* -j .reloc -j .eh_frame \
@@ -1131,7 +1132,7 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=mmx64.efi
 [91m4+0 records in
 4+0 records out
-[0m[91m4 bytes copied, 0.000328913 s, 12.2 kB/s[0m[91m
+[0m[91m4 bytes copied, 0.00048464 s, 8.3 kB/s[0m[91m
 [0mobjcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	-j .dynamic -j .dynsym -j .rel* \
 	-j .rela* -j .reloc -j .eh_frame \
@@ -1141,15 +1142,15 @@ dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=mmx64.efi
 dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=fbx64.efi
 [91m4+0 records in
 4+0 records out
-[0m[91m4 bytes copied, 0.000339113 s, 11.8 kB/s[0m[91m
-[0mRemoving intermediate container 1bc1aa6fd726
- ---> ba72f7b29ae5
+[0m[91m4 bytes copied, 0.000335561 s, 11.9 kB/s[0m[91m
+[0mRemoving intermediate container d50926a8a15c
+ ---> e8d8ef1dea73
 Step 27/35 : RUN mv shimx64.efi /build/target/
- ---> Running in 847b667ec52d
-Removing intermediate container 847b667ec52d
- ---> beed540510fc
+ ---> Running in f0d4a5d8d48a
+Removing intermediate container f0d4a5d8d48a
+ ---> 92d0e52c4ea2
 Step 28/35 : RUN make clean ; exit 0
- ---> Running in d9afcc54e7c5
+ ---> Running in 3cd02ac45903
 make -C lib -f /build/shim/lib/Makefile clean
 make[1]: Entering directory '/build/shim/lib'
 rm -f lib.a
@@ -1215,25 +1216,25 @@ make -C Cryptlib/OpenSSL -f /build/shim/Cryptlib/OpenSSL/Makefile clean
 make[1]: Entering directory '/build/shim/Cryptlib/OpenSSL'
 rm -f libopenssl.a crypto/bio/b_print.o crypto/aes/aes_cbc.o crypto/aes/aes_cfb.o crypto/aes/aes_core.o crypto/aes/aes_ecb.o crypto/aes/aes_ige.o crypto/aes/aes_misc.o crypto/aes/aes_ofb.o crypto/aes/aes_wrap.o crypto/asn1/a_bitstr.o crypto/asn1/a_d2i_fp.o crypto/asn1/a_digest.o crypto/asn1/a_dup.o crypto/asn1/a_gentm.o crypto/asn1/a_i2d_fp.o crypto/asn1/a_int.o crypto/asn1/a_mbstr.o crypto/asn1/a_object.o crypto/asn1/a_octet.o crypto/asn1/a_print.o crypto/asn1/a_sign.o crypto/asn1/a_strex.o crypto/asn1/a_strnid.o crypto/asn1/a_time.o crypto/asn1/a_type.o crypto/asn1/a_utctm.o crypto/asn1/a_utf8.o crypto/asn1/a_verify.o crypto/asn1/ameth_lib.o crypto/asn1/asn1_err.o crypto/asn1/asn1_gen.o crypto/asn1/asn1_lib.o crypto/asn1/asn1_par.o crypto/asn1/asn_mime.o crypto/asn1/asn_moid.o crypto/asn1/asn_mstbl.o crypto/asn1/asn_pack.o crypto/asn1/bio_asn1.o crypto/asn1/bio_ndef.o crypto/asn1/d2i_pr.o crypto/asn1/d2i_pu.o crypto/asn1/evp_asn1.o crypto/asn1/f_int.o crypto/asn1/f_string.o crypto/asn1/i2d_pr.o crypto/asn1/i2d_pu.o crypto/asn1/n_pkey.o crypto/asn1/nsseq.o crypto/asn1/p5_pbe.o crypto/asn1/p5_pbev2.o crypto/asn1/p5_scrypt.o crypto/asn1/p8_pkey.o crypto/asn1/t_bitst.o crypto/asn1/t_pkey.o crypto/asn1/t_spki.o crypto/asn1/tasn_dec.o crypto/asn1/tasn_enc.o crypto/asn1/tasn_fre.o crypto/asn1/tasn_new.o crypto/asn1/tasn_prn.o crypto/asn1/tasn_scn.o crypto/asn1/tasn_typ.o crypto/asn1/tasn_utl.o crypto/asn1/x_algor.o crypto/asn1/x_bignum.o crypto/asn1/x_info.o crypto/asn1/x_long.o crypto/asn1/x_pkey.o crypto/asn1/x_sig.o crypto/asn1/x_spki.o crypto/asn1/x_val.o crypto/async/arch/async_null.o crypto/async/arch/async_posix.o crypto/async/arch/async_win.o crypto/async/async.o crypto/async/async_err.o crypto/async/async_wait.o crypto/bio/b_addr.o crypto/bio/b_dump.o crypto/bio/b_sock.o crypto/bio/b_sock2.o crypto/bio/bf_buff.o crypto/bio/bf_lbuf.o crypto/bio/bf_nbio.o crypto/bio/bf_null.o crypto/bio/bio_cb.o crypto/bio/bio_err.o crypto/bio/bio_lib.o crypto/bio/bio_meth.o crypto/bio/bss_acpt.o crypto/bio/bss_bio.o crypto/bio/bss_conn.o crypto/bio/bss_dgram.o crypto/bio/bss_fd.o crypto/bio/bss_file.o crypto/bio/bss_log.o crypto/bio/bss_mem.o crypto/bio/bss_null.o crypto/bio/bss_sock.o crypto/bn/bn_add.o crypto/bn/bn_asm.o crypto/bn/bn_blind.o crypto/bn/bn_const.o crypto/bn/bn_ctx.o crypto/bn/bn_depr.o crypto/bn/bn_dh.o crypto/bn/bn_div.o crypto/bn/bn_err.o crypto/bn/bn_exp.o crypto/bn/bn_exp2.o crypto/bn/bn_gcd.o crypto/bn/bn_gf2m.o crypto/bn/bn_intern.o crypto/bn/bn_kron.o crypto/bn/bn_lib.o crypto/bn/bn_mod.o crypto/bn/bn_mont.o crypto/bn/bn_mpi.o crypto/bn/bn_mul.o crypto/bn/bn_nist.o crypto/bn/bn_prime.o crypto/bn/bn_print.o crypto/bn/bn_rand.o crypto/bn/bn_recp.o crypto/bn/bn_shift.o crypto/bn/bn_sqr.o crypto/bn/bn_sqrt.o crypto/bn/bn_srp.o crypto/bn/bn_word.o crypto/bn/bn_x931p.o crypto/buffer/buf_err.o crypto/buffer/buffer.o crypto/cmac/cm_ameth.o crypto/cmac/cm_pmeth.o crypto/cmac/cmac.o crypto/comp/c_zlib.o crypto/comp/comp_err.o crypto/comp/comp_lib.o crypto/conf/conf_api.o crypto/conf/conf_def.o crypto/conf/conf_err.o crypto/conf/conf_lib.o crypto/conf/conf_mall.o crypto/conf/conf_mod.o crypto/conf/conf_sap.o crypto/cpt_err.o crypto/cryptlib.o crypto/cversion.o crypto/dh/dh_ameth.o crypto/dh/dh_asn1.o crypto/dh/dh_check.o crypto/dh/dh_depr.o crypto/dh/dh_err.o crypto/dh/dh_gen.o crypto/dh/dh_kdf.o crypto/dh/dh_key.o crypto/dh/dh_lib.o crypto/dh/dh_meth.o crypto/dh/dh_pmeth.o crypto/dh/dh_prn.o crypto/dh/dh_rfc5114.o crypto/dso/dso_dl.o crypto/dso/dso_dlfcn.o crypto/dso/dso_err.o crypto/dso/dso_lib.o crypto/dso/dso_openssl.o crypto/dso/dso_vms.o crypto/dso/dso_win32.o crypto/ebcdic.o crypto/err/err.o crypto/err/err_all.o crypto/err/err_prn.o crypto/evp/bio_b64.o crypto/evp/bio_enc.o crypto/evp/bio_md.o crypto/evp/bio_ok.o crypto/evp/c_allc.o crypto/evp/c_alld.o crypto/evp/cmeth_lib.o crypto/evp/digest.o crypto/evp/e_aes.o crypto/evp/e_aes_cbc_hmac_sha1.o crypto/evp/e_aes_cbc_hmac_sha256.o crypto/evp/e_bf.o crypto/evp/e_camellia.o crypto/evp/e_cast.o crypto/evp/e_chacha20_poly1305.o crypto/evp/e_des.o crypto/evp/e_des3.o crypto/evp/e_idea.o crypto/evp/e_null.o crypto/evp/e_old.o crypto/evp/e_rc2.o crypto/evp/e_rc4.o crypto/evp/e_rc4_hmac_md5.o crypto/evp/e_rc5.o crypto/evp/e_seed.o crypto/evp/e_xcbc_d.o crypto/evp/encode.o crypto/evp/evp_cnf.o crypto/evp/evp_enc.o crypto/evp/evp_err.o crypto/evp/evp_key.o crypto/evp/evp_lib.o crypto/evp/evp_pbe.o crypto/evp/evp_pkey.o crypto/evp/m_md2.o crypto/evp/m_md4.o crypto/evp/m_md5.o crypto/evp/m_md5_sha1.o crypto/evp/m_mdc2.o crypto/evp/m_null.o crypto/evp/m_ripemd.o crypto/evp/m_sha1.o crypto/evp/m_sigver.o crypto/evp/m_wp.o crypto/evp/names.o crypto/evp/p5_crpt.o crypto/evp/p5_crpt2.o crypto/evp/p_dec.o crypto/evp/p_enc.o crypto/evp/p_lib.o crypto/evp/p_open.o crypto/evp/p_seal.o crypto/evp/p_sign.o crypto/evp/p_verify.o crypto/evp/pmeth_fn.o crypto/evp/pmeth_gn.o crypto/evp/pmeth_lib.o crypto/evp/scrypt.o crypto/ex_data.o crypto/hmac/hm_ameth.o crypto/hmac/hm_pmeth.o crypto/hmac/hmac.o crypto/init.o crypto/kdf/hkdf.o crypto/kdf/kdf_err.o crypto/kdf/tls1_prf.o crypto/lhash/lh_stats.o crypto/lhash/lhash.o crypto/md5/md5_dgst.o crypto/md5/md5_one.o crypto/mem.o crypto/mem_clr.o crypto/mem_dbg.o crypto/mem_sec.o crypto/modes/cbc128.o crypto/modes/ccm128.o crypto/modes/cfb128.o crypto/modes/ctr128.o crypto/modes/cts128.o crypto/modes/gcm128.o crypto/modes/ocb128.o crypto/modes/ofb128.o crypto/modes/wrap128.o crypto/modes/xts128.o crypto/o_dir.o crypto/o_fips.o crypto/o_fopen.o crypto/o_init.o crypto/o_str.o crypto/o_time.o crypto/objects/o_names.o crypto/objects/obj_dat.o crypto/objects/obj_err.o crypto/objects/obj_lib.o crypto/objects/obj_xref.o crypto/ocsp/ocsp_asn.o crypto/ocsp/ocsp_cl.o crypto/ocsp/ocsp_err.o crypto/ocsp/ocsp_ext.o crypto/ocsp/ocsp_ht.o crypto/ocsp/ocsp_lib.o crypto/ocsp/ocsp_prn.o crypto/ocsp/ocsp_srv.o crypto/ocsp/ocsp_vfy.o crypto/ocsp/v3_ocsp.o crypto/pem/pem_all.o crypto/pem/pem_err.o crypto/pem/pem_info.o crypto/pem/pem_lib.o crypto/pem/pem_oth.o crypto/pem/pem_pk8.o crypto/pem/pem_pkey.o crypto/pem/pem_sign.o crypto/pem/pem_x509.o crypto/pem/pem_xaux.o crypto/pem/pvkfmt.o crypto/pkcs12/p12_add.o crypto/pkcs12/p12_asn.o crypto/pkcs12/p12_attr.o crypto/pkcs12/p12_crpt.o crypto/pkcs12/p12_crt.o crypto/pkcs12/p12_decr.o crypto/pkcs12/p12_init.o crypto/pkcs12/p12_key.o crypto/pkcs12/p12_kiss.o crypto/pkcs12/p12_mutl.o crypto/pkcs12/p12_npas.o crypto/pkcs12/p12_p8d.o crypto/pkcs12/p12_p8e.o crypto/pkcs12/p12_sbag.o crypto/pkcs12/p12_utl.o crypto/pkcs12/pk12err.o crypto/pkcs7/bio_pk7.o crypto/pkcs7/pk7_asn1.o crypto/pkcs7/pk7_attr.o crypto/pkcs7/pk7_doit.o crypto/pkcs7/pk7_lib.o crypto/pkcs7/pk7_mime.o crypto/pkcs7/pk7_smime.o crypto/pkcs7/pkcs7err.o crypto/rand/md_rand.o crypto/rand/rand_egd.o crypto/rand/rand_err.o crypto/rand/rand_lib.o crypto/rand/rand_unix.o crypto/rand/rand_vms.o crypto/rand/rand_win.o crypto/rand/randfile.o crypto/rc4/rc4_enc.o crypto/rc4/rc4_skey.o crypto/rsa/rsa_ameth.o crypto/rsa/rsa_asn1.o crypto/rsa/rsa_chk.o crypto/rsa/rsa_crpt.o crypto/rsa/rsa_depr.o crypto/rsa/rsa_err.o crypto/rsa/rsa_gen.o crypto/rsa/rsa_lib.o crypto/rsa/rsa_meth.o crypto/rsa/rsa_none.o crypto/rsa/rsa_null.o crypto/rsa/rsa_oaep.o crypto/rsa/rsa_ossl.o crypto/rsa/rsa_pk1.o crypto/rsa/rsa_pmeth.o crypto/rsa/rsa_prn.o crypto/rsa/rsa_pss.o crypto/rsa/rsa_saos.o crypto/rsa/rsa_sign.o crypto/rsa/rsa_ssl.o crypto/rsa/rsa_x931.o crypto/rsa/rsa_x931g.o crypto/sha/sha1_one.o crypto/sha/sha1dgst.o crypto/sha/sha256.o crypto/sha/sha512.o crypto/stack/stack.o crypto/threads_none.o crypto/threads_pthread.o crypto/threads_win.o crypto/txt_db/txt_db.o crypto/uid.o crypto/x509/by_dir.o crypto/x509/by_file.o crypto/x509/t_crl.o crypto/x509/t_req.o crypto/x509/t_x509.o crypto/x509/x509_att.o crypto/x509/x509_cmp.o crypto/x509/x509_d2.o crypto/x509/x509_def.o crypto/x509/x509_err.o crypto/x509/x509_ext.o crypto/x509/x509_lu.o crypto/x509/x509_obj.o crypto/x509/x509_r2x.o crypto/x509/x509_req.o crypto/x509/x509_set.o crypto/x509/x509_trs.o crypto/x509/x509_txt.o crypto/x509/x509_v3.o crypto/x509/x509_vfy.o crypto/x509/x509_vpm.o crypto/x509/x509cset.o crypto/x509/x509name.o crypto/x509/x509rset.o crypto/x509/x509spki.o crypto/x509/x509type.o crypto/x509/x_all.o crypto/x509/x_attrib.o crypto/x509/x_crl.o crypto/x509/x_exten.o crypto/x509/x_name.o crypto/x509/x_pubkey.o crypto/x509/x_req.o crypto/x509/x_x509.o crypto/x509/x_x509a.o crypto/x509v3/pcy_cache.o crypto/x509v3/pcy_data.o crypto/x509v3/pcy_lib.o crypto/x509v3/pcy_map.o crypto/x509v3/pcy_node.o crypto/x509v3/pcy_tree.o crypto/x509v3/v3_addr.o crypto/x509v3/v3_akey.o crypto/x509v3/v3_akeya.o crypto/x509v3/v3_alt.o crypto/x509v3/v3_asid.o crypto/x509v3/v3_bcons.o crypto/x509v3/v3_bitst.o crypto/x509v3/v3_conf.o crypto/x509v3/v3_cpols.o crypto/x509v3/v3_crld.o crypto/x509v3/v3_enum.o crypto/x509v3/v3_extku.o crypto/x509v3/v3_genn.o crypto/x509v3/v3_ia5.o crypto/x509v3/v3_info.o crypto/x509v3/v3_int.o crypto/x509v3/v3_lib.o crypto/x509v3/v3_ncons.o crypto/x509v3/v3_pci.o crypto/x509v3/v3_pcia.o crypto/x509v3/v3_pcons.o crypto/x509v3/v3_pku.o crypto/x509v3/v3_pmaps.o crypto/x509v3/v3_prn.o crypto/x509v3/v3_purp.o crypto/x509v3/v3_skey.o crypto/x509v3/v3_sxnet.o crypto/x509v3/v3_tlsf.o crypto/x509v3/v3_utl.o crypto/x509v3/v3err.o
 make[1]: Leaving directory '/build/shim/Cryptlib/OpenSSL'
-Removing intermediate container d9afcc54e7c5
- ---> a7db39f03ca6
+Removing intermediate container 3cd02ac45903
+ ---> 5a5ae3be493e
 Step 29/35 : WORKDIR /build/shim/Cryptlib/OpenSSL/
- ---> Running in 6196502ac856
-Removing intermediate container 6196502ac856
- ---> 539c72d8f2ba
+ ---> Running in dbd46aa0e335
+Removing intermediate container dbd46aa0e335
+ ---> 7218efea1eed
 Step 30/35 : RUN make clean ; exit 0
- ---> Running in 40999a62ffb6
+ ---> Running in e3fc745e2d5a
 rm -f libopenssl.a crypto/bio/b_print.o crypto/aes/aes_cbc.o crypto/aes/aes_cfb.o crypto/aes/aes_core.o crypto/aes/aes_ecb.o crypto/aes/aes_ige.o crypto/aes/aes_misc.o crypto/aes/aes_ofb.o crypto/aes/aes_wrap.o crypto/asn1/a_bitstr.o crypto/asn1/a_d2i_fp.o crypto/asn1/a_digest.o crypto/asn1/a_dup.o crypto/asn1/a_gentm.o crypto/asn1/a_i2d_fp.o crypto/asn1/a_int.o crypto/asn1/a_mbstr.o crypto/asn1/a_object.o crypto/asn1/a_octet.o crypto/asn1/a_print.o crypto/asn1/a_sign.o crypto/asn1/a_strex.o crypto/asn1/a_strnid.o crypto/asn1/a_time.o crypto/asn1/a_type.o crypto/asn1/a_utctm.o crypto/asn1/a_utf8.o crypto/asn1/a_verify.o crypto/asn1/ameth_lib.o crypto/asn1/asn1_err.o crypto/asn1/asn1_gen.o crypto/asn1/asn1_lib.o crypto/asn1/asn1_par.o crypto/asn1/asn_mime.o crypto/asn1/asn_moid.o crypto/asn1/asn_mstbl.o crypto/asn1/asn_pack.o crypto/asn1/bio_asn1.o crypto/asn1/bio_ndef.o crypto/asn1/d2i_pr.o crypto/asn1/d2i_pu.o crypto/asn1/evp_asn1.o crypto/asn1/f_int.o crypto/asn1/f_string.o crypto/asn1/i2d_pr.o crypto/asn1/i2d_pu.o crypto/asn1/n_pkey.o crypto/asn1/nsseq.o crypto/asn1/p5_pbe.o crypto/asn1/p5_pbev2.o crypto/asn1/p5_scrypt.o crypto/asn1/p8_pkey.o crypto/asn1/t_bitst.o crypto/asn1/t_pkey.o crypto/asn1/t_spki.o crypto/asn1/tasn_dec.o crypto/asn1/tasn_enc.o crypto/asn1/tasn_fre.o crypto/asn1/tasn_new.o crypto/asn1/tasn_prn.o crypto/asn1/tasn_scn.o crypto/asn1/tasn_typ.o crypto/asn1/tasn_utl.o crypto/asn1/x_algor.o crypto/asn1/x_bignum.o crypto/asn1/x_info.o crypto/asn1/x_long.o crypto/asn1/x_pkey.o crypto/asn1/x_sig.o crypto/asn1/x_spki.o crypto/asn1/x_val.o crypto/async/arch/async_null.o crypto/async/arch/async_posix.o crypto/async/arch/async_win.o crypto/async/async.o crypto/async/async_err.o crypto/async/async_wait.o crypto/bio/b_addr.o crypto/bio/b_dump.o crypto/bio/b_sock.o crypto/bio/b_sock2.o crypto/bio/bf_buff.o crypto/bio/bf_lbuf.o crypto/bio/bf_nbio.o crypto/bio/bf_null.o crypto/bio/bio_cb.o crypto/bio/bio_err.o crypto/bio/bio_lib.o crypto/bio/bio_meth.o crypto/bio/bss_acpt.o crypto/bio/bss_bio.o crypto/bio/bss_conn.o crypto/bio/bss_dgram.o crypto/bio/bss_fd.o crypto/bio/bss_file.o crypto/bio/bss_log.o crypto/bio/bss_mem.o crypto/bio/bss_null.o crypto/bio/bss_sock.o crypto/bn/bn_add.o crypto/bn/bn_asm.o crypto/bn/bn_blind.o crypto/bn/bn_const.o crypto/bn/bn_ctx.o crypto/bn/bn_depr.o crypto/bn/bn_dh.o crypto/bn/bn_div.o crypto/bn/bn_err.o crypto/bn/bn_exp.o crypto/bn/bn_exp2.o crypto/bn/bn_gcd.o crypto/bn/bn_gf2m.o crypto/bn/bn_intern.o crypto/bn/bn_kron.o crypto/bn/bn_lib.o crypto/bn/bn_mod.o crypto/bn/bn_mont.o crypto/bn/bn_mpi.o crypto/bn/bn_mul.o crypto/bn/bn_nist.o crypto/bn/bn_prime.o crypto/bn/bn_print.o crypto/bn/bn_rand.o crypto/bn/bn_recp.o crypto/bn/bn_shift.o crypto/bn/bn_sqr.o crypto/bn/bn_sqrt.o crypto/bn/bn_srp.o crypto/bn/bn_word.o crypto/bn/bn_x931p.o crypto/buffer/buf_err.o crypto/buffer/buffer.o crypto/cmac/cm_ameth.o crypto/cmac/cm_pmeth.o crypto/cmac/cmac.o crypto/comp/c_zlib.o crypto/comp/comp_err.o crypto/comp/comp_lib.o crypto/conf/conf_api.o crypto/conf/conf_def.o crypto/conf/conf_err.o crypto/conf/conf_lib.o crypto/conf/conf_mall.o crypto/conf/conf_mod.o crypto/conf/conf_sap.o crypto/cpt_err.o crypto/cryptlib.o crypto/cversion.o crypto/dh/dh_ameth.o crypto/dh/dh_asn1.o crypto/dh/dh_check.o crypto/dh/dh_depr.o crypto/dh/dh_err.o crypto/dh/dh_gen.o crypto/dh/dh_kdf.o crypto/dh/dh_key.o crypto/dh/dh_lib.o crypto/dh/dh_meth.o crypto/dh/dh_pmeth.o crypto/dh/dh_prn.o crypto/dh/dh_rfc5114.o crypto/dso/dso_dl.o crypto/dso/dso_dlfcn.o crypto/dso/dso_err.o crypto/dso/dso_lib.o crypto/dso/dso_openssl.o crypto/dso/dso_vms.o crypto/dso/dso_win32.o crypto/ebcdic.o crypto/err/err.o crypto/err/err_all.o crypto/err/err_prn.o crypto/evp/bio_b64.o crypto/evp/bio_enc.o crypto/evp/bio_md.o crypto/evp/bio_ok.o crypto/evp/c_allc.o crypto/evp/c_alld.o crypto/evp/cmeth_lib.o crypto/evp/digest.o crypto/evp/e_aes.o crypto/evp/e_aes_cbc_hmac_sha1.o crypto/evp/e_aes_cbc_hmac_sha256.o crypto/evp/e_bf.o crypto/evp/e_camellia.o crypto/evp/e_cast.o crypto/evp/e_chacha20_poly1305.o crypto/evp/e_des.o crypto/evp/e_des3.o crypto/evp/e_idea.o crypto/evp/e_null.o crypto/evp/e_old.o crypto/evp/e_rc2.o crypto/evp/e_rc4.o crypto/evp/e_rc4_hmac_md5.o crypto/evp/e_rc5.o crypto/evp/e_seed.o crypto/evp/e_xcbc_d.o crypto/evp/encode.o crypto/evp/evp_cnf.o crypto/evp/evp_enc.o crypto/evp/evp_err.o crypto/evp/evp_key.o crypto/evp/evp_lib.o crypto/evp/evp_pbe.o crypto/evp/evp_pkey.o crypto/evp/m_md2.o crypto/evp/m_md4.o crypto/evp/m_md5.o crypto/evp/m_md5_sha1.o crypto/evp/m_mdc2.o crypto/evp/m_null.o crypto/evp/m_ripemd.o crypto/evp/m_sha1.o crypto/evp/m_sigver.o crypto/evp/m_wp.o crypto/evp/names.o crypto/evp/p5_crpt.o crypto/evp/p5_crpt2.o crypto/evp/p_dec.o crypto/evp/p_enc.o crypto/evp/p_lib.o crypto/evp/p_open.o crypto/evp/p_seal.o crypto/evp/p_sign.o crypto/evp/p_verify.o crypto/evp/pmeth_fn.o crypto/evp/pmeth_gn.o crypto/evp/pmeth_lib.o crypto/evp/scrypt.o crypto/ex_data.o crypto/hmac/hm_ameth.o crypto/hmac/hm_pmeth.o crypto/hmac/hmac.o crypto/init.o crypto/kdf/hkdf.o crypto/kdf/kdf_err.o crypto/kdf/tls1_prf.o crypto/lhash/lh_stats.o crypto/lhash/lhash.o crypto/md5/md5_dgst.o crypto/md5/md5_one.o crypto/mem.o crypto/mem_clr.o crypto/mem_dbg.o crypto/mem_sec.o crypto/modes/cbc128.o crypto/modes/ccm128.o crypto/modes/cfb128.o crypto/modes/ctr128.o crypto/modes/cts128.o crypto/modes/gcm128.o crypto/modes/ocb128.o crypto/modes/ofb128.o crypto/modes/wrap128.o crypto/modes/xts128.o crypto/o_dir.o crypto/o_fips.o crypto/o_fopen.o crypto/o_init.o crypto/o_str.o crypto/o_time.o crypto/objects/o_names.o crypto/objects/obj_dat.o crypto/objects/obj_err.o crypto/objects/obj_lib.o crypto/objects/obj_xref.o crypto/ocsp/ocsp_asn.o crypto/ocsp/ocsp_cl.o crypto/ocsp/ocsp_err.o crypto/ocsp/ocsp_ext.o crypto/ocsp/ocsp_ht.o crypto/ocsp/ocsp_lib.o crypto/ocsp/ocsp_prn.o crypto/ocsp/ocsp_srv.o crypto/ocsp/ocsp_vfy.o crypto/ocsp/v3_ocsp.o crypto/pem/pem_all.o crypto/pem/pem_err.o crypto/pem/pem_info.o crypto/pem/pem_lib.o crypto/pem/pem_oth.o crypto/pem/pem_pk8.o crypto/pem/pem_pkey.o crypto/pem/pem_sign.o crypto/pem/pem_x509.o crypto/pem/pem_xaux.o crypto/pem/pvkfmt.o crypto/pkcs12/p12_add.o crypto/pkcs12/p12_asn.o crypto/pkcs12/p12_attr.o crypto/pkcs12/p12_crpt.o crypto/pkcs12/p12_crt.o crypto/pkcs12/p12_decr.o crypto/pkcs12/p12_init.o crypto/pkcs12/p12_key.o crypto/pkcs12/p12_kiss.o crypto/pkcs12/p12_mutl.o crypto/pkcs12/p12_npas.o crypto/pkcs12/p12_p8d.o crypto/pkcs12/p12_p8e.o crypto/pkcs12/p12_sbag.o crypto/pkcs12/p12_utl.o crypto/pkcs12/pk12err.o crypto/pkcs7/bio_pk7.o crypto/pkcs7/pk7_asn1.o crypto/pkcs7/pk7_attr.o crypto/pkcs7/pk7_doit.o crypto/pkcs7/pk7_lib.o crypto/pkcs7/pk7_mime.o crypto/pkcs7/pk7_smime.o crypto/pkcs7/pkcs7err.o crypto/rand/md_rand.o crypto/rand/rand_egd.o crypto/rand/rand_err.o crypto/rand/rand_lib.o crypto/rand/rand_unix.o crypto/rand/rand_vms.o crypto/rand/rand_win.o crypto/rand/randfile.o crypto/rc4/rc4_enc.o crypto/rc4/rc4_skey.o crypto/rsa/rsa_ameth.o crypto/rsa/rsa_asn1.o crypto/rsa/rsa_chk.o crypto/rsa/rsa_crpt.o crypto/rsa/rsa_depr.o crypto/rsa/rsa_err.o crypto/rsa/rsa_gen.o crypto/rsa/rsa_lib.o crypto/rsa/rsa_meth.o crypto/rsa/rsa_none.o crypto/rsa/rsa_null.o crypto/rsa/rsa_oaep.o crypto/rsa/rsa_ossl.o crypto/rsa/rsa_pk1.o crypto/rsa/rsa_pmeth.o crypto/rsa/rsa_prn.o crypto/rsa/rsa_pss.o crypto/rsa/rsa_saos.o crypto/rsa/rsa_sign.o crypto/rsa/rsa_ssl.o crypto/rsa/rsa_x931.o crypto/rsa/rsa_x931g.o crypto/sha/sha1_one.o crypto/sha/sha1dgst.o crypto/sha/sha256.o crypto/sha/sha512.o crypto/stack/stack.o crypto/threads_none.o crypto/threads_pthread.o crypto/threads_win.o crypto/txt_db/txt_db.o crypto/uid.o crypto/x509/by_dir.o crypto/x509/by_file.o crypto/x509/t_crl.o crypto/x509/t_req.o crypto/x509/t_x509.o crypto/x509/x509_att.o crypto/x509/x509_cmp.o crypto/x509/x509_d2.o crypto/x509/x509_def.o crypto/x509/x509_err.o crypto/x509/x509_ext.o crypto/x509/x509_lu.o crypto/x509/x509_obj.o crypto/x509/x509_r2x.o crypto/x509/x509_req.o crypto/x509/x509_set.o crypto/x509/x509_trs.o crypto/x509/x509_txt.o crypto/x509/x509_v3.o crypto/x509/x509_vfy.o crypto/x509/x509_vpm.o crypto/x509/x509cset.o crypto/x509/x509name.o crypto/x509/x509rset.o crypto/x509/x509spki.o crypto/x509/x509type.o crypto/x509/x_all.o crypto/x509/x_attrib.o crypto/x509/x_crl.o crypto/x509/x_exten.o crypto/x509/x_name.o crypto/x509/x_pubkey.o crypto/x509/x_req.o crypto/x509/x_x509.o crypto/x509/x_x509a.o crypto/x509v3/pcy_cache.o crypto/x509v3/pcy_data.o crypto/x509v3/pcy_lib.o crypto/x509v3/pcy_map.o crypto/x509v3/pcy_node.o crypto/x509v3/pcy_tree.o crypto/x509v3/v3_addr.o crypto/x509v3/v3_akey.o crypto/x509v3/v3_akeya.o crypto/x509v3/v3_alt.o crypto/x509v3/v3_asid.o crypto/x509v3/v3_bcons.o crypto/x509v3/v3_bitst.o crypto/x509v3/v3_conf.o crypto/x509v3/v3_cpols.o crypto/x509v3/v3_crld.o crypto/x509v3/v3_enum.o crypto/x509v3/v3_extku.o crypto/x509v3/v3_genn.o crypto/x509v3/v3_ia5.o crypto/x509v3/v3_info.o crypto/x509v3/v3_int.o crypto/x509v3/v3_lib.o crypto/x509v3/v3_ncons.o crypto/x509v3/v3_pci.o crypto/x509v3/v3_pcia.o crypto/x509v3/v3_pcons.o crypto/x509v3/v3_pku.o crypto/x509v3/v3_pmaps.o crypto/x509v3/v3_prn.o crypto/x509v3/v3_purp.o crypto/x509v3/v3_skey.o crypto/x509v3/v3_sxnet.o crypto/x509v3/v3_tlsf.o crypto/x509v3/v3_utl.o crypto/x509v3/v3err.o
-Removing intermediate container 40999a62ffb6
- ---> 98351a2358f7
+Removing intermediate container e3fc745e2d5a
+ ---> a79c1b91ecf8
 Step 31/35 : WORKDIR /build/shim
- ---> Running in 57194fdc7db8
-Removing intermediate container 57194fdc7db8
- ---> 68cd8e712dd6
+ ---> Running in 1f08955c084e
+Removing intermediate container 1f08955c084e
+ ---> 78ec5713dbf0
 Step 32/35 : COPY sf-secureboot-signing.der /build/shim
- ---> fe289128ccd8
+ ---> 92c8de723f0b
 Step 33/35 : RUN setarch linux32 make ARCH=ia32 VENDOR_CERT_FILE=sf-secureboot-signing.der LIBDIR=/usr/lib32
- ---> Running in 6fef78e370f8
+ ---> Running in 2f64511f4218
 sed	-e "s,@@VERSION@@,15," \
 	-e "s,@@UNAME@@,Linux i686 unknown unknown GNU/Linux," \
 	-e "s,@@COMMIT@@,a4a1fbe728c9545fc5647129df0cf1593b953bec," \
@@ -1730,7 +1731,7 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=shimia32.efi
 [91m4+0 records in
 4+0 records out
-[0m[91m4 bytes copied, 0.000559923 s, 7.1 kB/s[0m[91m
+[0m[91m4 bytes copied, 0.00049387 s, 8.1 kB/s[0m[91m
 [0mobjcopy -D -j .text -j .sdata -j .data \
 	-j .dynamic -j .dynsym -j .rel* \
 	-j .rela* -j .reloc -j .eh_frame \
@@ -1770,7 +1771,7 @@ objcopy -D -j .text -j .sdata -j .data \
 dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=mmia32.efi
 [91m4+0 records in
 4+0 records out
-[0m[91m4 bytes copied, 0.000346631 s, 11.5 kB/s[0m[91m
+[0m[91m4 bytes copied, 0.000351614 s, 11.4 kB/s[0m[91m
 [0mobjcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	-j .dynamic -j .dynsym -j .rel* \
 	-j .rela* -j .reloc -j .eh_frame \
@@ -1780,18 +1781,18 @@ dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=mmia32.efi
 dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=fbia32.efi
 [91m4+0 records in
 4+0 records out
-[0m[91m4 bytes copied, 0.000277138 s, 14.4 kB/s[0m[91m
-[0mRemoving intermediate container 6fef78e370f8
- ---> 4ff31e829bb5
+[0m[91m4 bytes copied, 0.000442161 s, 9.0 kB/s[0m[91m
+[0mRemoving intermediate container 2f64511f4218
+ ---> 204b7237a876
 Step 34/35 : RUN mv shimia32.efi /build/target/
- ---> Running in b2e61baa6311
-Removing intermediate container b2e61baa6311
- ---> d940d2aa6c4d
+ ---> Running in 251872d3603e
+Removing intermediate container 251872d3603e
+ ---> 0d1666f0e56a
 Step 35/35 : RUN sha256sum /build/target/*
- ---> Running in 85b3f9ddebd3
-f65a35bdc2b859b9fd4fc23745249087945f3b0b7130eeb6961518a318c8d9d2  /build/target/shimia32.efi
-0c6235ea753d47637baf47da88ed91bd22bf3be9008a63204c8a542d921b1679  /build/target/shimx64.efi
-Removing intermediate container 85b3f9ddebd3
- ---> 9db00a3c3e5a
-Successfully built 9db00a3c3e5a
-Successfully tagged evimetry-3.2.4.1-shim-review:latest
+ ---> Running in dc82b7f78911
+268f85f2397ec6aa294eed5f628babc1279b553e0fc8c597062dca4602eba77f  /build/target/shimia32.efi
+db25d0f9cdc7e5ca7540f9bae0258466bdd96650e45bc097aa36675371214675  /build/target/shimx64.efi
+Removing intermediate container dc82b7f78911
+ ---> 9df87e2a3eef
+Successfully built 9df87e2a3eef
+Successfully tagged shim-build:latest
